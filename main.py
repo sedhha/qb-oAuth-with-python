@@ -6,14 +6,22 @@ from modules.logger import ProcessLogger
 from modules.Quickbooks import QuickbooksClient
 from modules.readXML import XMLReader
 import config as cfg
-from os.path import abspath, dirname
-from os import chdir,replace
+from os.path import abspath, dirname,exists
+from os import chdir,replace,makedirs
 
 def gotoCurrentDirectory():
     # Change the Directory to the Main Directory
     absPath = abspath(__file__)
     directoryName = dirname(absPath)
     chdir(directoryName)
+
+def moveFileToFolder(fromPath:str,toPath:str):
+
+    # Check if the file exists to toPath and if not create and then move the file from Path
+    dirPath = toPath.split("/")[0]
+    if not exists(dirPath):
+        makedirs(dirPath)
+    replace(fromPath,toPath)
 
 
 def readXMLAndGetBills():
@@ -35,6 +43,8 @@ def uploadBillsToQuickBooks(bills:list[dict]):
                 "billObject": eachBill,
                 "errorMessage": str(e)
             })
+            moveFileToFolder(eachBill['fromPath'], eachBill['toPath'])
+
         
 
 
