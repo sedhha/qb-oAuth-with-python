@@ -36,7 +36,8 @@ def uploadBillsToQuickBooks(bills:list[dict]):
     for eachBill in bills:
         try:
             qbBillManager.createBillInQuickBooks(eachBill['billObject'])
-            replace(eachBill['fromPath'], eachBill['toPath'])
+            if(exists(eachBill['fromPath'])):
+                replace(eachBill['fromPath'], eachBill['toPath'])
         except ValueError as e:
             # Log Exception into JSON
             logger.writeToFile({

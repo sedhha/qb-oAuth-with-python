@@ -40,6 +40,7 @@ class XMLReader:
             "LinkedTxn": [
                 {
             "TxnId":xmlBill["Number"], 
+            "TxnType": "Payment"
             }
             ],
             "TotalAmt": xmlBill["Amount"], 
@@ -64,11 +65,11 @@ class XMLReader:
                         }
                         ]
                 else:
-                    result = list(map(data_dict['GLXML']['Bill'],lambda x: {
+                    result = list(map(lambda x: {
                     'dict':x,
                     'fromPath': f'{path}/{eachFile}',
                     'toPath': f'{movePath}/{eachFile}'
-                    }))
+                    }, data_dict['GLXML']['Bill']))
                 
                 xmlDictionaries.extend(result)
                 
