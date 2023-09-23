@@ -23,7 +23,7 @@ In case at any point you see NoModuleError:
 just do: `pip install <MODULE_NAME>`
 
 - python -m venv qbenv
-- qbenv/Scripts/activate
+- qbenv/Scripts/activate (For windows: qbenv\Scripts\activate)
 - pip install -r requirements.txt
   You need to copy it from oAuth playground: https://developer.intuit.com/app/developer/playground
 
