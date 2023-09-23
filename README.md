@@ -24,7 +24,9 @@ just do: `pip install <MODULE_NAME>`
 
 - python -m venv qbenv
 - qbenv/Scripts/activate (For windows: qbenv\Scripts\activate)
-- pip install -r requirements.txt
+- pip install -r requirements.txt (python -m pip install -r requirements.txt) # if it says pip isn't recognized
   You need to copy it from oAuth playground: https://developer.intuit.com/app/developer/playground
 
 - pip install -r requirements.txt
+
+Once pip installation is successful you need to set the secrets and once all of the secrets config is done, you can run directly python main.py.
