@@ -9,6 +9,11 @@ Folder Structure:
 
 Process to **Setup**:
 
+Process to clone the repository:
+```
+git clone https://github.com/sedhha/qb-oAuth-with-python
+cd qb-oAuth-with-python
+```
 Command to setup virtual environment:
 Windows System
 `source venv/bin/activate`
